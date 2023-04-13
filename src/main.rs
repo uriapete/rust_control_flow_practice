@@ -20,6 +20,24 @@ fn main() {
                 .read_line(&mut main_menu_choice)
                 .expect("Failed to read line");
         }
+        if main_menu_choice =="1"{
+            loop {
+                println!("Please choose one of the options below:");
+                println!("1) From Fahrenheit to Celcius");
+                println!("2) From Celcius to Fahrenheit");
+                let mut temp_mode_choice:String = String::new();
+                while (temp_mode_choice!="1")&&(temp_mode_choice!="2"){
+                    stdin()
+                        .read_line(&mut temp_mode_choice)
+                        .expect("Failed to read line");
+                }
+                if temp_mode_choice=="1"{
+                    
+                }
+            }
+            
+        }
+
     }
 }
 
