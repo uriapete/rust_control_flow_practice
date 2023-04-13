@@ -1,10 +1,26 @@
-use std::vec;
+use std::{vec, io::stdin, string};
 
 fn main() {
     println!("Hello, world!");
     // let mode = "ctof";
     // println!("{}",convert_temps("ftoc",40.0))
     // fibo_gen(377+610);
+    
+    // menu
+    loop {
+        println!("Hello! What would you like to do?");
+        println!("1) Convert temperatures between Celcius and Fahrenheit");
+        println!("2) Generate fibonacci numbers");
+        println!("Please input either 1 or 2");
+
+        let mut main_menu_choice=String::new();
+
+        while main_menu_choice!="1"&&main_menu_choice!="2" {
+            stdin()
+                .read_line(&mut main_menu_choice)
+                .expect("Failed to read line");
+        }
+    }
 }
 
 // hi, i'm learning rust
