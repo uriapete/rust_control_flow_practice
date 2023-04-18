@@ -32,7 +32,13 @@ fn main() {
                         .expect("Failed to read line");
                 }
                 if temp_mode_choice=="1"{
-                    
+                    println!("Please enter a temperature amount in Fahrenheit to convert into Celcius: ");
+                    let mut input_temp_f:String = String::new();
+                    while input_temp_f==String::new(){
+                        stdin()
+                            .read_line(&mut input_temp_f)
+                            .expect("Failed to read line");
+                    }
                 }
             }
             
