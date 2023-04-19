@@ -1,4 +1,5 @@
-use std::{vec, io::stdin, string};
+use core::num;
+use std::{vec, io::stdin, string, result};
 
 fn main() {
     println!("Hello, world!");
@@ -9,39 +10,33 @@ fn main() {
     // menu
     loop {
         println!("Hello! What would you like to do?");
+
+        // initting var for main menu choice
+        let mut main_menu_choice=String::new();
+
+        // getting choice from user for what to do
         println!("1) Convert temperatures between Celcius and Fahrenheit");
         println!("2) Generate fibonacci numbers");
         println!("Please input either 1 or 2");
+        stdin()
+            .read_line(&mut main_menu_choice)
+            .expect("Failed to read line");
 
-        let mut main_menu_choice=String::new();
+        let main_menu_choice = main_menu_choice.trim();
 
-        while main_menu_choice!="1"&&main_menu_choice!="2" {
-            stdin()
-                .read_line(&mut main_menu_choice)
-                .expect("Failed to read line");
-        }
+        // println!("{}",(main_menu_choice.as_str()==("1")));
+        println!("\"{}\"",main_menu_choice);
+        // println!("steak");
+
+        // please ignore my godawful code
+
+        // logic for converting temps
         if main_menu_choice =="1"{
-            loop {
-                println!("Please choose one of the options below:");
-                println!("1) From Fahrenheit to Celcius");
-                println!("2) From Celcius to Fahrenheit");
-                let mut temp_mode_choice:String = String::new();
-                while (temp_mode_choice!="1")&&(temp_mode_choice!="2"){
-                    stdin()
-                        .read_line(&mut temp_mode_choice)
-                        .expect("Failed to read line");
-                }
-                if temp_mode_choice=="1"{
-                    println!("Please enter a temperature amount in Fahrenheit to convert into Celcius: ");
-                    let mut input_temp_f:String = String::new();
-                    while input_temp_f==String::new(){
-                        stdin()
-                            .read_line(&mut input_temp_f)
-                            .expect("Failed to read line");
-                    }
-                }
-            }
-            
+            println!("you picked #1");
+        }else if main_menu_choice=="2" {
+            println!("you picked #2");
+        } else {
+            println!("invalid choice");
         }
 
     }
