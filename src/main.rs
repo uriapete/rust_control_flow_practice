@@ -1,5 +1,4 @@
-use core::num;
-use std::{vec, io::stdin, string, result};
+use std::{vec, io::stdin, result};
 
 fn main() {
     println!("Hello, world!");
