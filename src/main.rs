@@ -8,7 +8,7 @@ fn main() {
     // fibo_gen(377+610);
     
     // menu
-    loop {
+    'main_menu:loop {
         println!("Hello! What would you like to do?");
 
         // initting var for main menu choice
@@ -22,17 +22,39 @@ fn main() {
             .read_line(&mut main_menu_choice)
             .expect("Failed to read line");
 
-        let main_menu_choice = main_menu_choice.trim();
-
-        // println!("{}",(main_menu_choice.as_str()==("1")));
-        println!("\"{}\"",main_menu_choice);
-        // println!("steak");
-
-        // please ignore my godawful code
+        // trimming the newline from the readline
+        let main_menu_choice:&str = main_menu_choice.trim();
 
         // logic for converting temps
         if main_menu_choice =="1"{
-            println!("you picked #1");
+            'temp_convert_main: loop {
+                // giving option for what to convert to what
+                // var for input choice
+                let mut temp_mode_choice:String = String::new();
+
+                // getting choice
+                    println!("Please input either 1 or 2:");
+                    println!("1) From Fahrenheit to Celcius");
+                    println!("2) From Celcius to Fahrenheit");
+                    println!("3) Exit to main menu");
+                    stdin()
+                        .read_line(&mut temp_mode_choice)
+                        .expect("Failed to read line");
+
+                // trimming the newline from the readline
+                let temp_mode_choice:&str = temp_mode_choice.trim();
+
+                // println!("{temp_mode_choice}");
+
+                // logic for converting f to c
+                if temp_mode_choice=="1"{                    
+                    println!("F to C");
+                }else if temp_mode_choice=="2" {
+                    println!("C to F");
+                }else{
+                    continue 'main_menu;
+                }
+            }
         }else if main_menu_choice=="2" {
             println!("you picked #2");
         } else {
