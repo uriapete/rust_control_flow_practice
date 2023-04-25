@@ -46,8 +46,32 @@ fn main() {
                 // println!("{temp_mode_choice}");
 
                 // logic for converting f to c
-                if temp_mode_choice=="1"{                    
-                    println!("F to C");
+                if temp_mode_choice=="1"{
+                    'temp_convert_f_to_c: loop {
+                        // println!("F to C");
+                        
+                        // get number input
+                        let mut temp_convert_input_f:String=String::new();
+                        println!("Please input a temperature in °F to convert into °C");
+                        stdin()
+                            .read_line(&mut temp_convert_input_f)
+                            .expect("Failed to read line");
+
+                        // trim input
+                        let temp_convert_input_f:&str=temp_convert_input_f.trim();
+                        
+                        // convert string input to float
+                        let temp_input_num_result: Result<f64, std::num::ParseFloatError> = temp_convert_input_f
+                            .parse::<f64>();
+
+                        // handle error, or show conversion
+                        if temp_input_num_result.is_err() {
+                            println!("Unable to parse input");
+                            continue 'temp_convert_f_to_c;
+                        } else {
+                            println!("{0}°F in Celcius is {1}°C",temp_convert_input_f,convert_temps("ftoc", temp_input_num_result.unwrap()))
+                        }
+                    }
                 }else if temp_mode_choice=="2" {
                     println!("C to F");
                 }else{
