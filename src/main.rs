@@ -73,7 +73,32 @@ fn main() {
                         }
                     }
                 }else if temp_mode_choice=="2" {
-                    println!("C to F");
+                    // println!("C to F");
+                    'temp_convert_c_to_f: loop {
+                        // println!("F to C");
+                        
+                        // get number input
+                        let mut temp_convert_input_c:String=String::new();
+                        println!("Please input a temperature in °C to convert into °F");
+                        stdin()
+                            .read_line(&mut temp_convert_input_c)
+                            .expect("Failed to read line");
+
+                        // trim input
+                        let temp_convert_input_c:&str=temp_convert_input_c.trim();
+                        
+                        // convert string input to float
+                        let temp_input_num_result: Result<f64, std::num::ParseFloatError> = temp_convert_input_c
+                            .parse::<f64>();
+
+                        // handle error, or show conversion
+                        if temp_input_num_result.is_err() {
+                            println!("Unable to parse input");
+                            continue 'temp_convert_c_to_f;
+                        } else {
+                            println!("{0}°C in Celcius is {1}°F",temp_convert_input_c,convert_temps("ctof", temp_input_num_result.unwrap()))
+                        }
+                    }
                 }else{
                     continue 'main_menu;
                 }
