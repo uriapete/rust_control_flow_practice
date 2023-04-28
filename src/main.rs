@@ -1,4 +1,4 @@
-use std::{vec, io::stdin, result};
+use std::{vec, io::stdin};
 
 fn main() {
     println!("Hello, world!");
