@@ -52,13 +52,17 @@ fn main() {
                         
                         // get number input
                         let mut temp_convert_input_f:String=String::new();
-                        println!("Please input a temperature in °F to convert into °C");
+                        println!("Please input a temperature in °F to convert into °C (or type in \"exit\" to exit to the temperature mode menu)");
                         stdin()
                             .read_line(&mut temp_convert_input_f)
                             .expect("Failed to read line");
 
                         // trim input
                         let temp_convert_input_f:&str=temp_convert_input_f.trim();
+
+                        if temp_convert_input_f == "exit" {
+                            continue 'temp_convert_main;
+                        }
                         
                         // convert string input to float
                         let temp_input_num_result: Result<f64, std::num::ParseFloatError> = temp_convert_input_f
@@ -79,13 +83,17 @@ fn main() {
                         
                         // get number input
                         let mut temp_convert_input_c:String=String::new();
-                        println!("Please input a temperature in °C to convert into °F");
+                        println!("Please input a temperature in °C to convert into °F (or type in \"exit\" to exit to the temperature mode menu)");
                         stdin()
                             .read_line(&mut temp_convert_input_c)
                             .expect("Failed to read line");
 
                         // trim input
                         let temp_convert_input_c:&str=temp_convert_input_c.trim();
+
+                        if temp_convert_input_c == "exit" {
+                            continue 'temp_convert_main;
+                        }
                         
                         // convert string input to float
                         let temp_input_num_result: Result<f64, std::num::ParseFloatError> = temp_convert_input_c
