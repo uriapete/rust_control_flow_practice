@@ -176,21 +176,7 @@ fn fibo_gen(max_num:u128) {
 
     // i'm gonna use a vector to help with calcing fibo
 
-    // below code ended up not working
-    // i = index, num = elementnum
-    // so i can access next or previous item
-    // for (i,num) in fibo_list.iter().enumerate() {
-    //     println!("{num}");
-    //     if (i+1>=fibo_list.len()) {
-    //         let nextNum:u128=fibo_list[i-1]+num;
-    //         if nextNum<=max_num{
-    //             fibo_list.push(nextNum);
-    //         }
-    //     }
-    // }
-    // end of code that doesn't work
-
-    // i'll try a while loop this time
+    // here's a while loop with an index
 
     // current index
     let mut curr_idx: usize = 0;
@@ -199,11 +185,9 @@ fn fibo_gen(max_num:u128) {
     'fibo_loop: while curr_idx<fibo_list.len() {
         // get current num
         let num: u128 = fibo_list[curr_idx];
+        
         // print current num
         println!("{num}");
-
-        // // TESTING: print current index
-        // println!("{curr_idx}");
 
         // if the next num does not exist (current index is equal to or exceeds length of fibo_list)
         if (curr_idx+1)>=fibo_list.len() {
