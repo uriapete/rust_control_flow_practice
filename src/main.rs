@@ -163,6 +163,8 @@ fn main() {
 // Generate the nth Fibonacci number.
 // Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song.
 
+// i might do the last one later at some point but i spent too long on this thing, i'm not gonna do anymore for now
+
 fn convert_temps(mode: &str, input_temp: f64) -> f64 {
     if mode == "ftoc" {
         return (input_temp - 32.0) * (5.0 / 9.0);
