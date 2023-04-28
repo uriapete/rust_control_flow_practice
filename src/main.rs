@@ -11,7 +11,7 @@ fn main() {
         println!("Hello! What would you like to do?");
 
         // initting var for main menu choice
-        let mut main_menu_choice=String::new();
+        let mut main_menu_choice: String=String::new();
 
         // getting choice from user for what to do
         println!("1) Convert temperatures between Celcius and Fahrenheit");
@@ -123,7 +123,7 @@ fn main() {
                     .expect("Failed to read line");
     
                 // clean input
-                let fibo_input = fibo_input.trim();
+                let fibo_input: &str = fibo_input.trim();
     
                 // exit route
                 if fibo_input == "exit"{
@@ -193,12 +193,12 @@ fn fibo_gen(max_num:u128) {
     // i'll try a while loop this time
 
     // current index
-    let mut curr_idx = 0;
+    let mut curr_idx: usize = 0;
 
     // while index does not exceed the length of the fibo_list
     'fibo_loop: while curr_idx<fibo_list.len() {
         // get current num
-        let num = fibo_list[curr_idx];
+        let num: u128 = fibo_list[curr_idx];
         // print current num
         println!("{num}");
 
