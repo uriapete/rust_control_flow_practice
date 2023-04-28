@@ -107,12 +107,39 @@ fn main() {
                             println!("{0}°C in Celcius is {1}°F",temp_convert_input_c,convert_temps("ctof", temp_input_num_result.unwrap()))
                         }
                     }
-                }else{
+                }else if temp_mode_choice=="3"{
                     continue 'main_menu;
+                }else {
+                    println!("invalid choice");
                 }
             }
         }else if main_menu_choice=="2" {
-            println!("you picked #2");
+            'fibo_loop: loop {
+                // get input for fibo
+                println!("Enter the maximum value to stop fibonacci generator at, or type \"exit\" to exit to main menu");
+                let mut fibo_input:String=String::new();
+                stdin()
+                    .read_line(&mut fibo_input)
+                    .expect("Failed to read line");
+    
+                // clean input
+                let fibo_input = fibo_input.trim();
+    
+                // exit route
+                if fibo_input == "exit"{
+                    continue 'main_menu;
+                }
+    
+                let fibo_max_result = fibo_input.parse::<u128>();
+    
+                if fibo_max_result.is_err(){
+                    println!("Unable to parse input");
+                    continue 'fibo_loop;
+                } else{
+                    fibo_gen(fibo_max_result.unwrap());
+                    continue;
+                }
+            }
         } else {
             println!("invalid choice");
         }
